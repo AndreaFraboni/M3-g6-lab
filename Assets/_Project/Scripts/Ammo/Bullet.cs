@@ -6,14 +6,24 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private int _damage = 50;
     [SerializeField] private float _lifeSpan = 5f;
+    [SerializeField] private AudioClip ImpactSound;
 
     public float _speed = 10f;
 
     private Mover2D _mover;
 
+    private AudioSource AudioImpact;
+
     private void Awake()
     {
         _mover = GetComponent<Mover2D>();
+
+        AudioImpact = GetComponent<AudioSource>();
+
+        if (AudioImpact == null)
+        {
+            AudioImpact = gameObject.AddComponent<AudioSource>();
+        }
     }
 
     private void Start()
@@ -33,6 +43,12 @@ public class Bullet : MonoBehaviour
         {
             if (collision.gameObject.CompareTag(Tags.Enemy))
             {
+                if (ImpactSound != null && AudioImpact != null)
+                {
+                    AudioImpact.clip = ImpactSound;
+                    AudioImpact.Play();
+                }
+
                 //collision.gameObject.GetComponent<Enemy>().DestroyMe();
                 collision.gameObject.GetComponent<LifeController>().TakeDamage(_damage);
                 Destroy(gameObject);

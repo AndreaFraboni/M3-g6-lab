@@ -18,13 +18,16 @@ public class PlayerController : MonoBehaviour
     {
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
-        
+
+        Debug.Log($"INPUT H: {h}, V: {v}");
+
+
         Vector2 input = new Vector2(h, v);
 
         _mover.SetSpeed(_speed);
         _mover.SetAndNormalizeInput(input);
     }
-    
+
     public void DestroyPlayer()
     {
         Destroy(gameObject);

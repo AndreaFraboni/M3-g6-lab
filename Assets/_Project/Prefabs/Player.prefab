@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4738607898636258174}
   - component: {fileID: 38673262898284858}
   - component: {fileID: 7429207675551442530}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -129,6 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireRate: 0.5
   fireRange: 6
+  FireSound: {fileID: 0}
   BulletPrefab: {fileID: 6690237967428308868, guid: 5f516c270d67b1a45b2696c5f3ebad18, type: 3}
 --- !u!114 &4738607898636258174
 MonoBehaviour:
@@ -145,6 +146,7 @@ MonoBehaviour:
   _currenthp: 100
   _maxHP: 100
   _lives: 1
+  DeathSound: {fileID: 0}
 --- !u!50 &38673262898284858
 Rigidbody2D:
   serializedVersion: 4

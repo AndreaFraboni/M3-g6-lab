@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8213077923937862026}
   - component: {fileID: 2572284187608924667}
   - component: {fileID: 8581561128390772883}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -103,6 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 0}
   _speed: 5
+  DeathSound: {fileID: 0}
 --- !u!114 &3546923150976163582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,7 +116,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59cd9499295ebee4bbeb04adc1e69a5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 2
 --- !u!114 &8213077923937862026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,6 +131,7 @@ MonoBehaviour:
   _currenthp: 100
   _maxHP: 100
   _lives: 3
+  DeathSound: {fileID: 8300000, guid: ccefd841e327bb841886c19e66a8f309, type: 3}
 --- !u!61 &2572284187608924667
 BoxCollider2D:
   m_ObjectHideFlags: 0

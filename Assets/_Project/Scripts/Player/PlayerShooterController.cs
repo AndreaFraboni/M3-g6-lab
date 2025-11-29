@@ -6,10 +6,22 @@ public class PlayerShooterController : MonoBehaviour
 {
     [SerializeField] float fireRate = 0.5f;
     [SerializeField] float fireRange = 6.0f;
+    [SerializeField] private AudioClip FireSound;
+
+    private AudioSource AudioFire;
 
     public GameObject BulletPrefab;
 
     private float _lastShootTime;
+
+    private void Awake()
+    {
+        AudioFire = GetComponent<AudioSource>();
+        if (AudioFire == null)
+        {
+            AudioFire = gameObject.AddComponent<AudioSource>();
+        }
+    }
 
     private void Update()
     {
@@ -45,18 +57,21 @@ public class PlayerShooterController : MonoBehaviour
 
         if (Target == null) return;
 
-        GameObject cloneBullet;
-        Vector2 spawnPosition = transform.position;
+        Vector2 targetPos = Target.GetComponent<Rigidbody2D>().position;
+        Vector2 playerPos = transform.position;
+        Vector2 direction = (targetPos - playerPos);
 
-        cloneBullet = Instantiate(BulletPrefab, spawnPosition, Quaternion.identity);
+        float spawnOffset = 0.5f;
+        Vector2 spawnPosition = playerPos + direction * spawnOffset; // vado a spawnare fuori del rigidbody del player per non causare un problema di spostamento anomalo
+
+        GameObject cloneBullet = Instantiate(BulletPrefab, spawnPosition, Quaternion.identity);
 
         if (cloneBullet != null)
         {
-            Vector2 targetPos = Target.GetComponent<Rigidbody2D>().position;
-            Vector2 playerPos = transform.position;
-
-            Vector2 direction = (targetPos - playerPos);
-
+            if (FireSound != null && AudioFire != null)
+            {
+                AudioFire.PlayOneShot(FireSound);
+            }
             cloneBullet.gameObject.GetComponent<Bullet>().Shoot(direction);
         }
         else

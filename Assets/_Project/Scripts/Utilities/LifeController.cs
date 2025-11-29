@@ -7,6 +7,18 @@ public class LifeController : MonoBehaviour
     [SerializeField] private int _currenthp = 100;
     [SerializeField] private int _maxHP = 100;
     [SerializeField] private int _lives = 3;
+    [SerializeField] private AudioClip DeathSound;
+
+    private AudioSource AudioDeath;
+
+    private void Awake()
+    {
+        AudioDeath = GetComponent<AudioSource>();
+        if (AudioDeath == null)
+        {
+            AudioDeath = gameObject.AddComponent<AudioSource>();
+        }
+    }
 
     // Getter
     public int GetHp() => _currenthp;
@@ -47,6 +59,10 @@ public class LifeController : MonoBehaviour
     }
     public void TakeHeal(int amount)
     {
+        if (DeathSound != null && AudioDeath != null)
+        {
+            AudioDeath.PlayOneShot(DeathSound);
+        }
         AddHp(amount);
     }
 
