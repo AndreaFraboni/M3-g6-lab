@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Mover2D : MonoBehaviour
 {
-    [SerializeField] private float _speed = 5.0f;
-
+    private float _speed = 5.0f;
     private Rigidbody2D _rb;
     private Vector2 _input;
 
@@ -24,7 +23,7 @@ public class Mover2D : MonoBehaviour
 
     public void SetInput(Vector2 input)
     {
-        _input = input; 
+        _input = input;
     }
 
     public void SetAndNormalizeInput(Vector2 input)
@@ -40,5 +39,5 @@ public class Mover2D : MonoBehaviour
     public void SetSpeed(float speed)
     {
         _speed = speed;
-    }    
+    }
 }

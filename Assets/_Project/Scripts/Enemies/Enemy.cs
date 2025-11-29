@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private Transform _target; 
+    [SerializeField] private Transform _target;
     [SerializeField] private float _speed = 2.0f;
 
     private Mover2D _mover;
@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
             }
         }
     }
-        private void FixedUpdate()
+    private void FixedUpdate()
     {
         EnemyMovement();
     }
@@ -47,7 +47,7 @@ public class Enemy : MonoBehaviour
         {
             if (collision.gameObject.CompareTag(Tags.Player))
             {
-               _target.gameObject.GetComponent<PlayerController>().DestroyPlayer();
+                _target.gameObject.GetComponent<PlayerController>().DestroyPlayer();
             }
         }
     }

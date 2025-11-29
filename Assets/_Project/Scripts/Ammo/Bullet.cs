@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private float _lifeSpan = 10f;
+    [SerializeField] private int _damage = 50;
+    [SerializeField] private float _lifeSpan = 5f;
+
     public float _speed = 10f;
-    //[SerializeField] private int _damage = 10;
 
     private Mover2D _mover;
 
@@ -32,7 +33,8 @@ public class Bullet : MonoBehaviour
         {
             if (collision.gameObject.CompareTag(Tags.Enemy))
             {
-                collision.gameObject.GetComponent<Enemy>().DestroyMe();
+                //collision.gameObject.GetComponent<Enemy>().DestroyMe();
+                collision.gameObject.GetComponent<LifeController>().TakeDamage(_damage);
                 Destroy(gameObject);
             }
         }

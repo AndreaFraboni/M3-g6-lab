@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerShooterController : MonoBehaviour
 {
-    [SerializeField] float fireRate = 1.0f;
+    [SerializeField] float fireRate = 0.5f;
     [SerializeField] float fireRange = 6.0f;
 
     public GameObject BulletPrefab;
@@ -44,7 +44,7 @@ public class PlayerShooterController : MonoBehaviour
         GameObject Target = FindNearestEnemy();
 
         if (Target == null) return;
-        
+
         GameObject cloneBullet;
         Vector2 spawnPosition = transform.position;
 
