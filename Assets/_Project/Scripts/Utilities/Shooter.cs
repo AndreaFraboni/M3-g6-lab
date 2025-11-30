@@ -26,6 +26,11 @@ public class Shooter : MonoBehaviour
     {
         _lastShootTime = Time.time;
 
+        if (FireSound != null && _AudioSource != null)
+        {
+            _AudioSource.PlayOneShot(FireSound);
+        }
+
         Bullet clonedBullet = Instantiate(_bulletPrefab);
         clonedBullet.transform.position = transform.position + new Vector3(direction.x, direction.y, 0) * _offset;
         clonedBullet.Shoot(direction);
