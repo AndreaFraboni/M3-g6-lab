@@ -187,7 +187,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damage: 100
   _lifeSpan: 5
-  ImpactSound: {fileID: 8300000, guid: 2f4a82521fbcb8f489c088d9741f19d9, type: 3}
   _speed: 12
 --- !u!82 &5347576379650568828
 AudioSource:
