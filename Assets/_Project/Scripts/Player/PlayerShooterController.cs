@@ -8,7 +8,7 @@ public class PlayerShooterController : MonoBehaviour
     [SerializeField] float fireRange = 6.0f;
     [SerializeField] private AudioClip FireSound;
 
-    private AudioSource AudioFire;
+    private AudioSource _AudioSource;
 
     public GameObject BulletPrefab;
 
@@ -16,10 +16,10 @@ public class PlayerShooterController : MonoBehaviour
 
     private void Awake()
     {
-        AudioFire = GetComponent<AudioSource>();
-        if (AudioFire == null)
+        _AudioSource = GetComponent<AudioSource>();
+        if (_AudioSource == null)
         {
-            AudioFire = gameObject.AddComponent<AudioSource>();
+            _AudioSource = gameObject.AddComponent<AudioSource>();
         }
     }
 
@@ -68,10 +68,11 @@ public class PlayerShooterController : MonoBehaviour
 
         if (cloneBullet != null)
         {
-            if (FireSound != null && AudioFire != null)
+            if (FireSound != null && _AudioSource != null)
             {
-                AudioFire.PlayOneShot(FireSound);
+                _AudioSource.PlayOneShot(FireSound);
             }
+
             cloneBullet.gameObject.GetComponent<Bullet>().Shoot(direction);
         }
         else

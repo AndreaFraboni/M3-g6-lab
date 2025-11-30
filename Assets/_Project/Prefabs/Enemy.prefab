@@ -103,7 +103,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 0}
   _speed: 5
-  DeathSound: {fileID: 0}
 --- !u!114 &3546923150976163582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,6 +131,9 @@ MonoBehaviour:
   _maxHP: 100
   _lives: 3
   DeathSound: {fileID: 8300000, guid: ccefd841e327bb841886c19e66a8f309, type: 3}
+  ImpactSound1: {fileID: 8300000, guid: 2f4a82521fbcb8f489c088d9741f19d9, type: 3}
+  ImpactSound2: {fileID: 8300000, guid: 5638db6e71035a846a0cda97fbe2b489, type: 3}
+  ImpactSound3: {fileID: 8300000, guid: 9e958fbc0406135458b61497948ba777, type: 3}
 --- !u!61 &2572284187608924667
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -6,12 +6,8 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private Transform _target;
     [SerializeField] private float _speed = 2.0f;
-    [SerializeField] private AudioClip DeathSound;
 
     private Mover2D _mover;
-
-    private AudioSource AudioDeath;
-
 
     private void Awake()
     {
@@ -24,13 +20,6 @@ public class Enemy : MonoBehaviour
             {
                 _target = go.transform;
             }
-        }
-
-        AudioDeath = GetComponent<AudioSource>();
-
-        if (AudioDeath == null)
-        {
-            AudioDeath = gameObject.AddComponent<AudioSource>();
         }
 
     }
@@ -50,11 +39,6 @@ public class Enemy : MonoBehaviour
 
     public void DestroyMe()
     {
-        if (DeathSound != null && AudioDeath != null)
-        {
-            AudioDeath.PlayOneShot(DeathSound);
-        }
-
         Destroy(gameObject);
     }
 
