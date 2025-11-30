@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5286289075988928808}
   - component: {fileID: 1859717612767658264}
   - component: {fileID: 4230846924079184248}
-  - component: {fileID: 7583840471284166532}
+  - component: {fileID: -4739221990196512462}
   - component: {fileID: 4738607898636258174}
   - component: {fileID: 38673262898284858}
   - component: {fileID: 5996917370076501640}
@@ -63,7 +63,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 6
---- !u!114 &7583840471284166532
+  DeathSound: {fileID: 8300000, guid: ccefd841e327bb841886c19e66a8f309, type: 3}
+--- !u!114 &-4739221990196512462
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -72,13 +73,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3815638634952573171}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd5c5d2e1ebd12c4aa3a867df8d5fdda, type: 3}
+  m_Script: {fileID: 11500000, guid: 56ec8dfb4b76a0e41ae39965b96b1e49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 0.5
-  fireRange: 6
-  FireSound: {fileID: 0}
-  BulletPrefab: {fileID: 6690237967428308868, guid: 5f516c270d67b1a45b2696c5f3ebad18, type: 3}
+  _bulletPrefab: {fileID: 8654207593310752310, guid: 5f516c270d67b1a45b2696c5f3ebad18, type: 3}
+  _fireInterval: 0.5
+  _offset: 1.5
+  FireSound: {fileID: 8300000, guid: 7a98f3b26e687b94d92dd47ffdd9c503, type: 3}
 --- !u!114 &4738607898636258174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,10 +95,10 @@ MonoBehaviour:
   _currenthp: 100
   _maxHP: 100
   _lives: 1
-  DeathSound: {fileID: 0}
-  ImpactSound1: {fileID: 0}
-  ImpactSound2: {fileID: 0}
-  ImpactSound3: {fileID: 0}
+  DeathSound: {fileID: 8300000, guid: ccefd841e327bb841886c19e66a8f309, type: 3}
+  ImpactSound1: {fileID: 8300000, guid: 2f4a82521fbcb8f489c088d9741f19d9, type: 3}
+  ImpactSound2: {fileID: 8300000, guid: 5638db6e71035a846a0cda97fbe2b489, type: 3}
+  ImpactSound3: {fileID: 8300000, guid: 9e958fbc0406135458b61497948ba777, type: 3}
 --- !u!50 &38673262898284858
 Rigidbody2D:
   serializedVersion: 4
